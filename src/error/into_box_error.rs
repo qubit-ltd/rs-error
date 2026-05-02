@@ -1,9 +1,10 @@
 /*******************************************************************************
  *
- *    Copyright (c) 2025 - 2026.
- *    Haixing Hu, Qubit Co. Ltd.
+ *    Copyright (c) 2025 - 2026 Haixing Hu.
  *
- *    All rights reserved.
+ *    SPDX-License-Identifier: Apache-2.0
+ *
+ *    Licensed under the Apache License, Version 2.0.
  *
  ******************************************************************************/
 //! # Boxed Error Conversion
@@ -15,9 +16,6 @@
 //! conversion must be written as an expression, such as `map_err` closures or
 //! manually constructed `Err` values.
 //!
-//! # Author
-//!
-//! Haixing Hu
 
 use std::error::Error;
 

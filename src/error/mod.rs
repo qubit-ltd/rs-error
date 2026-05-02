@@ -1,9 +1,10 @@
 /*******************************************************************************
  *
- *    Copyright (c) 2025 - 2026.
- *    Haixing Hu, Qubit Co. Ltd.
+ *    Copyright (c) 2025 - 2026 Haixing Hu.
  *
- *    All rights reserved.
+ *    SPDX-License-Identifier: Apache-2.0
+ *
+ *    Licensed under the Apache License, Version 2.0.
  *
  ******************************************************************************/
 //! # Error and Result Helpers
@@ -36,9 +37,6 @@
 //! assert!(error.to_string().contains("invalid digit"));
 //! ```
 //!
-//! # Author
-//!
-//! Haixing Hu
 
 mod box_error;
 mod box_result;

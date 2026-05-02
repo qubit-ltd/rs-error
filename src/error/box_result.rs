@@ -1,9 +1,10 @@
 /*******************************************************************************
  *
- *    Copyright (c) 2025 - 2026.
- *    Haixing Hu, Qubit Co. Ltd.
+ *    Copyright (c) 2025 - 2026 Haixing Hu.
  *
- *    All rights reserved.
+ *    SPDX-License-Identifier: Apache-2.0
+ *
+ *    Licensed under the Apache License, Version 2.0.
  *
  ******************************************************************************/
 //! # Boxed Error Result
@@ -14,9 +15,6 @@
 //! `BoxResult<T>` is a concise spelling of `Result<T, BoxError>` for examples,
 //! callbacks, and integration helpers that combine unrelated error types.
 //!
-//! # Author
-//!
-//! Haixing Hu
 
 use super::BoxError;
 

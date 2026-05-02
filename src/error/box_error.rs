@@ -1,9 +1,10 @@
 /*******************************************************************************
  *
- *    Copyright (c) 2025 - 2026.
- *    Haixing Hu, Qubit Co. Ltd.
+ *    Copyright (c) 2025 - 2026 Haixing Hu.
  *
- *    All rights reserved.
+ *    SPDX-License-Identifier: Apache-2.0
+ *
+ *    Licensed under the Apache License, Version 2.0.
  *
  ******************************************************************************/
 //! # Boxed Error
@@ -15,9 +16,6 @@
 //! error type while preserving the standard [`std::error::Error`] interface and
 //! the thread-safety bounds required by async and threaded code.
 //!
-//! # Author
-//!
-//! Haixing Hu
 
 use super::DynError;
 
