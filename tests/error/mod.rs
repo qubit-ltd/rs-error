@@ -6,19 +6,11 @@
  *    All rights reserved.
  *
  ******************************************************************************/
-//! # Error Language Layer
+//! # Error Module Tests
 //!
-//! Provides shared error handling helpers.
-//!
-//! # Author
-//!
-//! Haixing Hu
+//! Tests for shared error and result helpers.
 
-pub mod error;
-
-pub use error::{
-    BoxError,
-    BoxResult,
-    DynError,
-    IntoBoxError,
-};
+mod box_error_tests;
+mod box_result_tests;
+mod dyn_error_tests;
+mod into_box_error_tests;

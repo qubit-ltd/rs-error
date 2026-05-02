@@ -14,14 +14,10 @@
 //!
 //! Haixing Hu
 
-pub mod lang;
-
 /// Boxed error aliases and conversion helpers.
-pub mod error {
-    pub use crate::lang::error::*;
-}
+pub mod error;
 
-pub use lang::error::{
+pub use error::{
     BoxError,
     BoxResult,
     DynError,

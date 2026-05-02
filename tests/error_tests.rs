@@ -6,8 +6,8 @@
  *    All rights reserved.
  *
  ******************************************************************************/
-//! # Language Module Test Entry
+//! # Error Module Test Entry
 //!
-//! Tests for language-related utility functions.
+//! Tests for shared error handling helpers.
 
-mod lang;
+mod error;

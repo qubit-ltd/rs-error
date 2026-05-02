@@ -70,11 +70,11 @@ Generated reports are saved in the following locations by default:
 If you only want to test specific modules, you can use:
 
 ```bash
-# Test only lang module
-cargo llvm-cov --html --open -- lang::
+# Test only error module
+cargo llvm-cov --html --open -- error::
 
 # Test only specific test files
-cargo llvm-cov --html --open --test lang_tests -- lang::argument
+cargo llvm-cov --html --open --test error_tests -- error::
 ```
 
 ## Exclude Specific Files
