@@ -1,7 +1,7 @@
 # Qubit Error
 
 [![Rust CI](https://github.com/qubit-ltd/rs-error/actions/workflows/ci.yml/badge.svg)](https://github.com/qubit-ltd/rs-error/actions/workflows/ci.yml)
-[![Coverage Status](https://coveralls.io/repos/github/qubit-ltd/rs-error/badge.svg?branch=main)](https://coveralls.io/github/qubit-ltd/rs-error?branch=main)
+[![Coverage](https://img.shields.io/endpoint?url=https://qubit-ltd.github.io/rs-error/coverage-badge.json)](https://qubit-ltd.github.io/rs-error/coverage/)
 [![Crates.io](https://img.shields.io/crates/v/qubit-error.svg?color=blue)](https://crates.io/crates/qubit-error)
 [![Rust](https://img.shields.io/badge/rust-1.94+-blue.svg?logo=rust)](https://www.rust-lang.org)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
@@ -43,7 +43,7 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-qubit-error = "0.2.0"
+qubit-error = "0.2.2"
 ```
 
 ## Quick Start
