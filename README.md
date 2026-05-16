@@ -43,7 +43,7 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-qubit-error = "0.2.2"
+qubit-error = "0.2"
 ```
 
 ## Quick Start
