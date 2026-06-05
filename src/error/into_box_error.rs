@@ -1,12 +1,10 @@
-/*******************************************************************************
- *
- *    Copyright (c) 2025 - 2026 Haixing Hu.
- *
- *    SPDX-License-Identifier: Apache-2.0
- *
- *    Licensed under the Apache License, Version 2.0.
- *
- ******************************************************************************/
+// =============================================================================
+//    Copyright (c) 2025 - 2026 Haixing Hu.
+//
+//    SPDX-License-Identifier: Apache-2.0
+//
+//    Licensed under the Apache License, Version 2.0.
+// =============================================================================
 //! # Boxed Error Conversion
 //!
 //! Provides an extension trait for explicitly boxing concrete error values.
@@ -15,7 +13,6 @@
 //! concrete errors into [`BoxError`]. `IntoBoxError` covers the cases where the
 //! conversion must be written as an expression, such as `map_err` closures or
 //! manually constructed `Err` values.
-//!
 
 use std::error::Error;
 

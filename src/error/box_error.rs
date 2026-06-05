@@ -1,12 +1,10 @@
-/*******************************************************************************
- *
- *    Copyright (c) 2025 - 2026 Haixing Hu.
- *
- *    SPDX-License-Identifier: Apache-2.0
- *
- *    Licensed under the Apache License, Version 2.0.
- *
- ******************************************************************************/
+// =============================================================================
+//    Copyright (c) 2025 - 2026 Haixing Hu.
+//
+//    SPDX-License-Identifier: Apache-2.0
+//
+//    Licensed under the Apache License, Version 2.0.
+// =============================================================================
 //! # Boxed Error
 //!
 //! Defines the boxed dynamic error alias used in generic and callback-oriented
@@ -15,7 +13,6 @@
 //! `BoxError` is the owned form of [`super::DynError`]. It erases the concrete
 //! error type while preserving the standard [`std::error::Error`] interface and
 //! the thread-safety bounds required by async and threaded code.
-//!
 
 use super::DynError;
 
@@ -31,7 +28,8 @@ use super::DynError;
 /// value. Boxing gives it a stable owned representation:
 ///
 /// - `Box` owns the concrete error value behind dynamic dispatch.
-/// - [`super::DynError`] centralizes the `Error + Send + Sync + 'static` bounds.
+/// - [`super::DynError`] centralizes the `Error + Send + Sync + 'static`
+///   bounds.
 /// - The alias keeps callback and generic signatures readable.
 ///
 /// A `BoxError` should not replace structured domain errors. Public APIs that

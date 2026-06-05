@@ -1,12 +1,10 @@
-/*******************************************************************************
- *
- *    Copyright (c) 2025 - 2026 Haixing Hu.
- *
- *    SPDX-License-Identifier: Apache-2.0
- *
- *    Licensed under the Apache License, Version 2.0.
- *
- ******************************************************************************/
+// =============================================================================
+//    Copyright (c) 2025 - 2026 Haixing Hu.
+//
+//    SPDX-License-Identifier: Apache-2.0
+//
+//    Licensed under the Apache License, Version 2.0.
+// =============================================================================
 //! # Error and Result Helpers
 //!
 //! Provides shared boxed error helpers and result aliases used by generic
@@ -36,7 +34,6 @@
 //! let error: BoxError = parse_port("bad").expect_err("invalid port should fail");
 //! assert!(error.to_string().contains("invalid digit"));
 //! ```
-//!
 
 mod box_error;
 mod box_result;
