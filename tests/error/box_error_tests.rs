@@ -1,18 +1,18 @@
-/*******************************************************************************
- *
- *    Copyright (c) 2025 - 2026 Haixing Hu.
- *
- *    SPDX-License-Identifier: Apache-2.0
- *
- *    Licensed under the Apache License, Version 2.0.
- *
- ******************************************************************************/
+// =============================================================================
+//    Copyright (c) 2025 - 2026 Haixing Hu.
+//
+//    SPDX-License-Identifier: Apache-2.0
+//
+//    Licensed under the Apache License, Version 2.0.
+// =============================================================================
 use std::error::Error;
 use std::io;
 
 use qubit_error::error::BoxError;
 
-fn accept_static_error(error: BoxError) -> Box<dyn Error + Send + Sync + 'static> {
+fn accept_static_error(
+    error: BoxError,
+) -> Box<dyn Error + Send + Sync + 'static> {
     error
 }
 

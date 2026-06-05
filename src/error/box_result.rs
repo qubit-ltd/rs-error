@@ -1,12 +1,10 @@
-/*******************************************************************************
- *
- *    Copyright (c) 2025 - 2026 Haixing Hu.
- *
- *    SPDX-License-Identifier: Apache-2.0
- *
- *    Licensed under the Apache License, Version 2.0.
- *
- ******************************************************************************/
+// =============================================================================
+//    Copyright (c) 2025 - 2026 Haixing Hu.
+//
+//    SPDX-License-Identifier: Apache-2.0
+//
+//    Licensed under the Apache License, Version 2.0.
+// =============================================================================
 //! # Boxed Error Result
 //!
 //! Defines the result alias for operations that intentionally return boxed
@@ -14,7 +12,6 @@
 //!
 //! `BoxResult<T>` is a concise spelling of `Result<T, BoxError>` for examples,
 //! callbacks, and integration helpers that combine unrelated error types.
-//!
 
 use super::BoxError;
 
@@ -40,8 +37,8 @@ use super::BoxError;
 ///
 /// - examples and small executable entry points;
 /// - callback return types;
-/// - internal orchestration that combines file, parse, and configuration
-///   errors without structured recovery.
+/// - internal orchestration that combines file, parse, and configuration errors
+///   without structured recovery.
 ///
 /// Avoid it for domain APIs that should expose a concrete error enum.
 ///

@@ -1,12 +1,10 @@
-/*******************************************************************************
- *
- *    Copyright (c) 2025 - 2026 Haixing Hu.
- *
- *    SPDX-License-Identifier: Apache-2.0
- *
- *    Licensed under the Apache License, Version 2.0.
- *
- ******************************************************************************/
+// =============================================================================
+//    Copyright (c) 2025 - 2026 Haixing Hu.
+//
+//    SPDX-License-Identifier: Apache-2.0
+//
+//    Licensed under the Apache License, Version 2.0.
+// =============================================================================
 //! # Dynamic Error Object
 //!
 //! Defines the shared dynamic error object bounds used by boxed errors.
@@ -17,7 +15,6 @@
 //!
 //! Most APIs should use [`super::BoxError`] for owned errors. Use `DynError`
 //! directly when the error is borrowed behind another pointer or reference.
-//!
 
 use std::error::Error;
 
@@ -34,7 +31,8 @@ use std::error::Error;
 ///
 /// - `Send` allows the error object to cross thread and task boundaries.
 /// - `Sync` allows shared references to the error object to be used safely.
-/// - `'static` prevents borrowed context from being hidden inside stored errors.
+/// - `'static` prevents borrowed context from being hidden inside stored
+///   errors.
 ///
 /// # When to Use
 ///
