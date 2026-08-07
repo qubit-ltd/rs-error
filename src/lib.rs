@@ -12,9 +12,7 @@
 /// Boxed error aliases and conversion helpers.
 pub mod error;
 
-pub use error::{
-    BoxError,
-    BoxResult,
-    DynError,
-    IntoBoxError,
-};
+pub use error::BoxError;
+pub use error::BoxResult;
+pub use error::DynError;
+pub use error::IntoBoxError;
