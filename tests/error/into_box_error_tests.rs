@@ -7,10 +7,8 @@
 // =============================================================================
 use std::io;
 
-use qubit_error::error::{
-    BoxError,
-    IntoBoxError,
-};
+use qubit_error::error::BoxError;
+use qubit_error::error::IntoBoxError;
 
 fn convert_error() -> BoxError {
     io::Error::other("converted error").into_box_error()
