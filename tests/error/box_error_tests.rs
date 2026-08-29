@@ -10,9 +10,7 @@ use std::io;
 
 use qubit_error::error::BoxError;
 
-fn accept_static_error(
-    error: BoxError,
-) -> Box<dyn Error + Send + Sync + 'static> {
+fn accept_static_error(error: BoxError) -> Box<dyn Error + Send + Sync + 'static> {
     error
 }
 
