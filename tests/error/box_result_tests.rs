@@ -16,8 +16,7 @@ fn fail_with_question_mark() -> BoxResult<()> {
 
 #[test]
 fn test_box_result_accepts_question_mark_conversion() {
-    let error =
-        fail_with_question_mark().expect_err("io error should be boxed");
+    let error = fail_with_question_mark().expect_err("io error should be boxed");
 
     assert_eq!(error.to_string(), "box result failure");
 }
