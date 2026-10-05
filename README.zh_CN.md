@@ -90,13 +90,13 @@ assert!(parse_port("not-a-port").is_err());
 cargo test
 
 # 运行覆盖率报告
-./coverage.sh
+./.infra/bin/coverage.sh
 
 # 生成文本格式报告
-./coverage.sh text
+./.infra/bin/coverage.sh text
 
 # 运行 CI 检查（格式化、clippy、测试、覆盖率、审计）
-./ci-check.sh
+./.infra/bin/ci-check.sh
 ```
 
 ### 覆盖率指标
@@ -132,7 +132,7 @@ Copyright (c) 2025 - 2026. Haixing Hu, Qubit Co. Ltd. All rights reserved.
 - 遵循 Rust API 指南。
 - 保持工具的通用性，避免依赖领域 crate。
 - 在文档能帮助理解时，为公共 API 提供示例。
-- 提交 PR 前运行 `./ci-check.sh`。
+- 提交 PR 前运行 `./.infra/bin/ci-check.sh`。
 
 ## 作者
 

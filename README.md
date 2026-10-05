@@ -96,13 +96,13 @@ doctest examples.
 cargo test
 
 # Run with coverage report
-./coverage.sh
+./.infra/bin/coverage.sh
 
 # Generate text format report
-./coverage.sh text
+./.infra/bin/coverage.sh text
 
 # Run CI checks (format, clippy, test, coverage, audit)
-./ci-check.sh
+./.infra/bin/ci-check.sh
 ```
 
 ### Coverage Metrics
@@ -140,7 +140,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 - Follow the Rust API guidelines.
 - Keep utilities generic and independent from domain crates.
 - Document all public APIs with examples when they clarify usage.
-- Run `./ci-check.sh` before submitting PRs.
+- Run `./.infra/bin/ci-check.sh` before submitting PRs.
 
 ## Author
 
