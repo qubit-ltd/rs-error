@@ -98,6 +98,7 @@ pub trait IntoBoxError: Error + Send + Sync + 'static + Sized {
     /// This method allocates one `Box` and stores `self` as the boxed concrete
     /// source error. It does not perform I/O, block, or otherwise inspect the
     /// error value.
+    #[must_use]
     #[inline]
     fn into_box_error(self) -> BoxError {
         Box::new(self)
