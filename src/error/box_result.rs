@@ -30,6 +30,11 @@ use super::BoxError;
 /// preserve a caller-provided error type, write `Result<T, E>` directly instead
 /// of hiding `E` behind a boxed trait object.
 ///
+/// # Type Parameters
+///
+/// - `T`: the successful value produced by the operation. It has no additional
+///   trait bounds.
+///
 /// # When to Use
 ///
 /// Use `BoxResult<T>` when every failure path can be treated uniformly as a
