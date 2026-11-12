@@ -2,6 +2,8 @@
 
 This repository uses the shared `rs-infra-coverage` tool and `cargo-llvm-cov` to collect and check code coverage.
 
+This guide is included in the crate package so the README link also works offline. Project development scripts such as `./.infra/bin/coverage.sh` require a full checkout of [the repository](https://github.com/qubit-ltd/rs-error). Run them from the checkout root, not from the Cargo cache or an unpacked crate package.
+
 ## Collect coverage
 
 From the repository root, run:

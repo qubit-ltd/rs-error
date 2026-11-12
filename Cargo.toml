@@ -17,6 +17,8 @@ include = [
     "/LICENSE",
     "/README.md",
     "/README.zh_CN.md",
+    "/COVERAGE.md",
+    "/COVERAGE.zh_CN.md",
     "/src/**",
     "/tests/**",
 ]

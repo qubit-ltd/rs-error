@@ -2,6 +2,8 @@
 
 本仓库使用共享的 `rs-infra-coverage` 工具和 `cargo-llvm-cov` 收集并检查代码覆盖率。
 
+本指南随 crate 包分发，便于离线阅读 README 中的链接文档。使用 `./.infra/bin/coverage.sh` 等项目开发脚本前，需要完整检出[本仓库](https://github.com/qubit-ltd/rs-error)，并在检出目录的根目录运行；不要在 Cargo 缓存或发布包解压目录中运行这些脚本。
+
 ## 收集覆盖率
 
 在仓库根目录运行：
