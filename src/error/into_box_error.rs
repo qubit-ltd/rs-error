@@ -95,9 +95,10 @@ pub trait IntoBoxError: Error + Send + Sync + 'static + Sized {
     ///
     /// # Allocation
     ///
-    /// This method allocates one `Box` and stores `self` as the boxed concrete
-    /// source error. It does not perform I/O, block, or otherwise inspect the
-    /// error value.
+    /// This method stores `self` in a `Box`, preserving its concrete error
+    /// type. Non-zero-sized errors require one heap allocation; zero-sized
+    /// errors require no heap allocation. It does not perform I/O, block, or
+    /// otherwise inspect the error value.
     #[must_use]
     #[inline]
     fn into_box_error(self) -> BoxError {

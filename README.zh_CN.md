@@ -79,69 +79,49 @@ assert!(parse_port("not-a-port").is_err());
 - [`BoxResult`](https://docs.rs/qubit-error/latest/qubit_error/type.BoxResult.html) - 使用 `BoxError` 的结果别名。
 - [`IntoBoxError`](https://docs.rs/qubit-error/latest/qubit_error/trait.IntoBoxError.html) - 显式转换 trait。
 
-## 测试与代码覆盖率
-
-本项目的测试聚焦于类型约束、转换行为和 doctest 示例。
-
-### 运行测试
-
-```bash
-# 运行所有测试
-cargo test
-
-# 运行覆盖率报告
-./.infra/bin/coverage.sh
-
-# 生成文本格式报告
-./.infra/bin/coverage.sh text
-
-# 运行 CI 检查（格式化、clippy、测试、覆盖率、审计）
-./.infra/bin/ci-check.sh
-```
-
-### 覆盖率指标
-
-详细的覆盖率统计请参见 [COVERAGE.zh_CN.md](COVERAGE.zh_CN.md)。
-
 ## 依赖项
 
 本 crate 除 Rust 标准库外没有运行时依赖。
 
-## 许可证
+## 覆盖率
 
-Copyright (c) 2025 - 2026. Haixing Hu, Qubit Co. Ltd. All rights reserved.
-
-根据 Apache 许可证 2.0 版（"许可证"）授权；
-除非遵守许可证，否则您不得使用此文件。
-您可以在以下位置获取许可证副本：
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-除非适用法律要求或书面同意，否则根据许可证分发的软件
-按"原样"分发，不附带任何明示或暗示的担保或条件。
-有关许可证下的特定语言管理权限和限制，请参阅许可证。
-
-完整的许可证文本请参阅 [LICENSE](LICENSE)。
-
-## 贡献
-
-欢迎贡献！请随时提交 Pull Request。
-
-### 开发指南
-
-- 遵循 Rust API 指南。
-- 保持工具的通用性，避免依赖领域 crate。
-- 在文档能帮助理解时，为公共 API 提供示例。
-- 提交 PR 前运行 `./.infra/bin/ci-check.sh`。
-
-## 作者
-
-**胡海星** - *Qubit Co. Ltd.*
+测试聚焦于类型约束、转换行为和 doctest 示例。覆盖率报告使用方法请参见
+[COVERAGE.zh_CN.md](COVERAGE.zh_CN.md)。
 
 ## 相关项目
 
 Qubit 旗下的更多 Rust 库发布在 GitHub 组织 [qubit-ltd](https://github.com/qubit-ltd)。
 
----
+## 测试
+
+```bash
+# 使用默认 feature 集运行测试
+cargo test
+
+# 使用项目声明的全部 feature 运行测试
+cargo test --all-features
+
+# 运行项目 CI 检查
+./.infra/bin/ci-check.sh
+
+# 检查代码覆盖率
+./.infra/bin/coverage.sh
+```
+
+## 许可证
+
+Copyright (c) 2025 - 2026. Haixing Hu. All rights reserved.
+
+本项目基于 Apache License 2.0 授权。完整许可证文本请参阅
+[LICENSE](LICENSE)。
+
+## 贡献
+
+欢迎贡献。请遵循 Rust API 指南，及时更新公共 API 文档与测试，并在提交
+Pull Request 前运行 `./.infra/bin/align-ci.sh` 格式化代码，运行 `./.infra/bin/ci-check.sh` 对齐 CI 要求。
+
+## 作者
+
+**Haixing Hu** - *Qubit Co. Ltd.*
 
 仓库地址：[https://github.com/qubit-ltd/rs-error](https://github.com/qubit-ltd/rs-error)

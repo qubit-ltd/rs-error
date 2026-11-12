@@ -1,167 +1,42 @@
-# Code Coverage Testing Guide
+# Code Coverage Guide
 
-This project uses `cargo-llvm-cov` for code coverage statistics.
+This repository uses the shared `rs-infra-coverage` tool and `cargo-llvm-cov` to collect and check code coverage.
 
-## Install Dependencies
+## Collect coverage
 
-If you haven't installed `cargo-llvm-cov` yet, please install it first:
-
-```bash
-cargo install cargo-llvm-cov
-```
-
-## Quick Start
-
-### Using Convenience Script (Recommended)
-
-We provide a convenience script `.infra/bin/coverage.sh` that can quickly generate coverage reports in various formats:
+From the repository root, run:
 
 ```bash
-# Generate HTML report and open in browser (default)
 ./.infra/bin/coverage.sh
-
-# Or specify format
-./.infra/bin/coverage.sh html       # HTML report (opens in browser)
-./.infra/bin/coverage.sh text       # Terminal text report
-./.infra/bin/coverage.sh lcov       # LCOV format
-./.infra/bin/coverage.sh json       # JSON format
-./.infra/bin/coverage.sh cobertura  # Cobertura XML format
-./.infra/bin/coverage.sh all        # Generate all formats
-
-# View help
-./.infra/bin/coverage.sh help
 ```
 
-### Using cargo Commands
+The script runs the configured coverage collection and then creates reports. It uses the latest `rs-infra-coverage` tool selected by `.infra/bootstrap.sh`; it does not accept report-format names such as `html`, `text`, `lcov`, `json`, or `cobertura` as positional arguments. The tool's `collect` command accepts `--output <PATH>` and `--ignore-thresholds`; the project wrapper also runs the shared report script.
 
-You can also use `cargo llvm-cov` commands directly:
+For one-off reports, run `cargo llvm-cov` directly from the repository root:
 
 ```bash
-# Clean old coverage data
 cargo llvm-cov clean
-
-# Generate HTML report and open in browser
-cargo llvm-cov --html --open
-
-# Generate text format report (output to terminal)
-cargo llvm-cov
-
-# Generate LCOV format report
-cargo llvm-cov --lcov --output-path target/llvm-cov/lcov.info
-
-# Generate JSON format report
-cargo llvm-cov --json --output-path target/llvm-cov/coverage.json
-
-# Generate Cobertura XML format report
+cargo llvm-cov --html                 # HTML: target/llvm-cov/html/index.html
+cargo llvm-cov --html --open          # HTML and open it in a browser
+cargo llvm-cov                        # text summary in the terminal
+cargo llvm-cov --lcov --output-path lcov.info
+cargo llvm-cov --json --output-path coverage.json
 cargo llvm-cov --cobertura --output-path target/llvm-cov/cobertura.xml
 ```
 
-## Report Locations
+The shared report script writes `coverage.json`, `lcov.info`, `coverage.txt`, `target/llvm-cov/cobertura.xml`, and `target/llvm-cov/html/index.html` in the repository root. Its CI workflow publishes these under the `coverage-reports` artifact. The direct `cargo llvm-cov` commands shown above use the output paths supplied on each command; HTML defaults to `target/llvm-cov/html`.
 
-Generated reports are saved in the following locations by default:
+## Scope and configuration
 
-- **HTML Report**: `target/llvm-cov/html/index.html`
-- **LCOV Report**: `target/llvm-cov/lcov.info`
-- **JSON Report**: `target/llvm-cov/coverage.json`
-- **Cobertura Report**: `target/llvm-cov/cobertura.xml`
+The coverage tool reads `.infra/coverage/coverage.json` when present; without it, the tool's defaults apply. This repository currently has no such project-specific file. The checked-in `.llvm-cov.toml` was not read by the configured tool or by `cargo-llvm-cov 0.9.1`, and has been removed. `cargo-llvm-cov` excludes common test code locations by default; inspect its own documentation for its current behavior.
 
-## Testing Specific Modules Only
+The CI coverage scope, exclusions, and thresholds are controlled by the shared coverage configuration and workflow. The local entry point and workflow are [`.infra/bin/coverage.sh`](.infra/bin/coverage.sh) and [`.github/workflows/ci.yml`](.github/workflows/ci.yml); this repository delegates CI to `qubit-ltd/rs-infra-ci/.github/workflows/github-ci.yml@main`.
 
-If you only want to test specific modules, you can use:
+## Troubleshooting
 
-```bash
-# Test only error module
-cargo llvm-cov --html --open -- error::
-
-# Test only specific test files
-cargo llvm-cov --html --open --test error_tests -- error::
-```
-
-## Exclude Specific Files
-
-In the `.llvm-cov.toml` configuration file, we have excluded the following files:
-
-- `tests/*` - Test files
-- `benches/*` - Benchmark files
-- `examples/*` - Example files
-
-If you need to modify exclusion rules, please edit the `.llvm-cov.toml` file.
-
-## CI/CD Integration
-
-### GitHub Actions Example
-
-```yaml
-name: Code Coverage
-
-on:
-  push:
-    branches: [ main, dev ]
-  pull_request:
-    branches: [ main, dev ]
-
-jobs:
-  coverage:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Install Rust
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          override: true
-
-      - name: Install cargo-llvm-cov
-        run: cargo install cargo-llvm-cov
-
-      - name: Generate coverage
-        run: |
-          cd rust-common
-          cargo llvm-cov --lcov --output-path lcov.info
-
-      - name: Upload to Codecov
-        uses: codecov/codecov-action@v3
-        with:
-          files: rust-common/lcov.info
-          flags: qubit-error
-```
-
-## Common Issues
-
-### 1. Cannot find `cargo-llvm-cov` command
-
-Make sure you have installed `cargo-llvm-cov`:
-
-```bash
-cargo install cargo-llvm-cov
-```
-
-### 2. Coverage data is inaccurate
-
-Clean old coverage data first:
-
-```bash
-cargo llvm-cov clean
-```
-
-### 3. How to improve coverage?
-
-- Write tests for all public APIs
-- Test boundary conditions and exception cases
-- Use coverage reports to identify untested code paths
-- Write tests for complex logic branches
-
-## Coverage Goals
-
-Our recommended coverage goals:
-
-- **Minimum requirement**: 60%
-- **Good**: 75%
-- **Excellent**: 85%+
-- **Core modules**: 90%+
+If `cargo llvm-cov` is unavailable, install it with `cargo install cargo-llvm-cov`. Run `cargo llvm-cov clean` before collecting again if stale coverage artifacts affect a local run.
 
 ## References
 
-- [cargo-llvm-cov GitHub](https://github.com/taiki-e/cargo-llvm-cov)
+- [cargo-llvm-cov](https://github.com/taiki-e/cargo-llvm-cov)
 - [LLVM Coverage Mapping](https://llvm.org/docs/CoverageMappingFormat.html)

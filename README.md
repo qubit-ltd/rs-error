@@ -84,72 +84,50 @@ structured recovery.
 - [`BoxResult`](https://docs.rs/qubit-error/latest/qubit_error/type.BoxResult.html) - result alias using `BoxError`.
 - [`IntoBoxError`](https://docs.rs/qubit-error/latest/qubit_error/trait.IntoBoxError.html) - explicit conversion trait.
 
-## Testing & Code Coverage
-
-This project keeps tests focused on type bounds, conversion behavior, and
-doctest examples.
-
-### Running Tests
-
-```bash
-# Run all tests
-cargo test
-
-# Run with coverage report
-./.infra/bin/coverage.sh
-
-# Generate text format report
-./.infra/bin/coverage.sh text
-
-# Run CI checks (format, clippy, test, coverage, audit)
-./.infra/bin/ci-check.sh
-```
-
-### Coverage Metrics
-
-See [COVERAGE.md](COVERAGE.md) for detailed coverage statistics.
-
 ## Dependencies
 
 This crate has no runtime dependencies outside the Rust standard library.
 
-## License
+## Coverage
 
-Copyright (c) 2025 - 2026. Haixing Hu, Qubit Co. Ltd. All rights reserved.
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-
-See [LICENSE](LICENSE) for the full license text.
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-### Development Guidelines
-
-- Follow the Rust API guidelines.
-- Keep utilities generic and independent from domain crates.
-- Document all public APIs with examples when they clarify usage.
-- Run `./.infra/bin/ci-check.sh` before submitting PRs.
-
-## Author
-
-**Haixing Hu** - *Qubit Co. Ltd.*
+Tests focus on type bounds, conversion behavior, and doctest examples. For
+coverage report instructions, see [COVERAGE.md](COVERAGE.md).
 
 ## Related Projects
 
 More Rust libraries from Qubit are published under the [qubit-ltd](https://github.com/qubit-ltd) organization on GitHub.
 
----
+## Testing
+
+```bash
+# Run tests with the default feature set
+cargo test
+
+# Run tests with all declared features
+cargo test --all-features
+
+# Project CI checks
+./.infra/bin/ci-check.sh
+
+# Check code coverage
+./.infra/bin/coverage.sh
+```
+
+## License
+
+Copyright (c) 2025 - 2026. Haixing Hu. All rights reserved.
+
+Licensed under the Apache License, Version 2.0. See [LICENSE](LICENSE) for the
+full license text.
+
+## Contributing
+
+Contributions are welcome. Please follow the Rust API guidelines, keep public
+API documentation and tests current, and run `./.infra/bin/align-ci.sh` to format code and
+`./.infra/bin/ci-check.sh` to satisfy CI requirements before submitting a pull request.
+
+## Author
+
+**Haixing Hu** - *Qubit Co. Ltd.*
 
 Repository: [https://github.com/qubit-ltd/rs-error](https://github.com/qubit-ltd/rs-error)
